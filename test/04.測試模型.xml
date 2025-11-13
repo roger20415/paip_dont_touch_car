@@ -1,0 +1,114 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Array" id="LCLXl}/N@RZM.eb`IKpU">推論結果</variable>
+    <variable type="Model" id=",fVjrJFAva(mqUo|QR/H">AI模型</variable>
+  </variables>
+  <block type="mlplay_class" id="8=fste+wOItiPINUK6V+" x="88" y="1762">
+    <statement name="INIT">
+      <block type="file_load" id="=TBx([n=:y~s*1mb+t/g">
+        <value name="FILENAME">
+          <shadow type="text" id="kwxDacnaz%,Q*nOTMR(#">
+            <field name="TEXT">AI模型</field>
+          </shadow>
+        </value>
+        <value name="OBJECT">
+          <block type="variables_get" id="!TuDG=ovErSX0kC!5#mY">
+            <field name="VAR" id=",fVjrJFAva(mqUo|QR/H" variabletype="Model">AI模型</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <statement name="UPDATE">
+      <block type="variables_set" id="clmPMLTyx5axNt[-/`@4">
+        <field name="VAR" id="LCLXl}/N@RZM.eb`IKpU" variabletype="Array">推論結果</field>
+        <value name="VALUE">
+          <block type="lists_getIndex" id="AHP/3Nn2wCTB||{9$O@L">
+            <mutation at="[object Object]"></mutation>
+            <field name="WHERE">FIRST</field>
+            <value name="VALUE">
+              <block type="model_predict" id="@#?Mxy?}P1gO9ySi27[=">
+                <value name="MODEL">
+                  <block type="variables_get" id="vD3skp9-SKyBeO+nYH*P">
+                    <field name="VAR" id=",fVjrJFAva(mqUo|QR/H" variabletype="Model">AI模型</field>
+                  </block>
+                </value>
+                <value name="X">
+                  <block type="lists_create_with" id="E9Xk-!8Ca?(7:_:C-iL9">
+                    <mutation items="1"></mutation>
+                    <value name="ADD0">
+                      <block type="lists_create_with" id="ZN1DpC?Wp_eE1Y[5/a)v">
+                        <mutation items="6"></mutation>
+                        <value name="ADD0">
+                          <block type="mlplay_get_info" id="M(zk^6J$$mbd/gH2w2YV">
+                            <field name="FIELD">scene_info['F_sensor']</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="mlplay_get_info" id="@MsyC9?{#*iE(K@-}ICt">
+                            <field name="FIELD">scene_info['B_sensor']</field>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="mlplay_get_info" id="G$:0djkwD(TS5W|Jq,GU">
+                            <field name="FIELD">scene_info['L_sensor']</field>
+                          </block>
+                        </value>
+                        <value name="ADD3">
+                          <block type="mlplay_get_info" id="}xNM[L])Glm:db1EDK0p">
+                            <field name="FIELD">scene_info['R_sensor']</field>
+                          </block>
+                        </value>
+                        <value name="ADD4">
+                          <block type="mlplay_get_info" id="}L#Dc3aMDbTdXtiK*.Q=">
+                            <field name="FIELD">scene_info['L_T_sensor']</field>
+                          </block>
+                        </value>
+                        <value name="ADD5">
+                          <block type="mlplay_get_info" id="H:/qK7,U/.T,0{!/wyLn">
+                            <field name="FIELD">scene_info['R_T_sensor']</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="mlplay_return_value" id="FB]=??s#Z@DK=RrL0W-?">
+            <value name="INPUT0">
+              <shadow type="math_number" id="O7aCy}Q_({H!Dvu=h7x!">
+                <field name="NUM">100</field>
+              </shadow>
+              <block type="lists_getIndex" id="6jaD0DW`!3l1~PN%7WPg">
+                <mutation at="[object Object]"></mutation>
+                <field name="WHERE">FIRST</field>
+                <value name="VALUE">
+                  <block type="variables_get" id="4Q%7E(nK8b98Ek9U68M-">
+                    <field name="VAR" id="LCLXl}/N@RZM.eb`IKpU" variabletype="Array">推論結果</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="~G_S%$]`7P4SXK$w6yD7">
+                <field name="NUM">100</field>
+              </shadow>
+              <block type="lists_getIndex" id="9:S,t:J=@Nl})H,VH/F.">
+                <mutation at="[object Object]"></mutation>
+                <field name="WHERE">LAST</field>
+                <value name="VALUE">
+                  <block type="variables_get" id="V[w.zgFwme~ZqO*s~}nw">
+                    <field name="VAR" id="LCLXl}/N@RZM.eb`IKpU" variabletype="Array">推論結果</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
